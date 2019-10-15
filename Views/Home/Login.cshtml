@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Login</h1>
+</div>
+  <div class="wrapper">
+@model LoginUser
+	<form asp-action="Login" method="post">
+
+        <table>
+            <tr class="top">
+                <td>
+                    <div>
+                        <span class="ValidationError" asp-validation-for="Email"></span> <br>
+                        <label class="InputLabel" asp-for="Email"></label>
+                        <input class="InputField" asp-for="Email">
+                    </div>
+                    <div>
+                        <span class="ValidationError" asp-validation-for="Password"></span> <br>
+                        <label class="InputLabel" asp-for="Password"></label>
+                        <input class="InputField" asp-for="Password">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+        <input class="InputButton" type="submit" value="Submit">
+        </form>
+    <div class="fixedTBottomRight"><a href="/">Need to Register?</a></div>
+    </div>

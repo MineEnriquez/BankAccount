@@ -1,0 +1,43 @@
+<div class="fixedTopRight"><a href="/Logout">Logout</a></div>
+@model List<Transaction>
+  <h2>Welcome, @ViewBag.Name</h2>
+
+  <div class="wrapper">
+    <div class="fixedTopRight"> 
+    Current Balance <span class="boxed">  @(((decimal)ViewBag.Saldo).ToString("C2")) </span>
+
+    </div>
+<div class="mediumPaded" >
+    <form action="/Account/@ViewBag.Id" method="post">
+      <input name="Saldo" type="hidden" value="@ViewBag.Saldo" readonly>
+      Deposit/Withdraw:  <select name="Amount" id="">
+        @for (int i = 50; i >-50; i--)
+        {
+        <option value="@i">@i</option>
+        }
+      </select>
+      <input type="submit" value="Submit">
+    </form>
+</div>
+
+    <thead class="thead-dark">
+      <table class="table table-striped">
+        <tr>
+          <th scope="col">Amount</th>
+          <th scope="col">CreatedAt</th>
+        </tr>
+    </thead>
+    <tbody>
+      @foreach (var tran in Model)
+      {
+      <tr>
+        <td>
+        @(((decimal)tran.Amount).ToString("C2"))
+        </td>
+        <td>@tran.CreatedAt</td>
+      </tr>
+      }
+    </tbody>
+    </table>
+
+  </div>

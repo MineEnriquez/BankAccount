@@ -1,0 +1,51 @@
+﻿@{
+ViewData["Title"] = "Home Page";
+}
+
+<div class="wrapper">
+
+    <div class="text-center">
+        <h1 class="display-4">Register</h1>
+    </div>
+        @model User
+            
+    <form asp-action="Register" method="post">
+        <table>
+            <tr class="top">
+                <td>
+                                <div>
+                                        <span class="ValidationError" asp-validation-for="FirstName"></span> <br>
+                                        <label class="InputLabel" asp-for="FirstName"></label>
+                                        <input class="InputField" asp-for="FirstName">
+                                    </div>
+                                <div>
+                                        <span class="ValidationError" asp-validation-for="LastName"></span> <br>
+                                        <label class="InputLabel" asp-for="LastName"></label>
+                                        <input class="InputField" asp-for="LastName">
+                                    </div>
+                                <div>
+                                        <span class="ValidationError" asp-validation-for="Email"></span> <br>
+                                        <label class="InputLabel" asp-for="Email"></label>
+                                        <input class="InputField" asp-for="Email">
+                                    </div>
+                </td>
+                <td>
+                                <div>
+                                        <span class="ValidationError" asp-validation-for="Password"></span> <br>
+                                        <label class="InputLabel" asp-for="Password"></label>
+                                        <input class="InputField" asp-for="Password">
+                                    </div>
+                        <div>
+                                        <span class="ValidationError" asp-validation-for="Confirm"></span> <br>
+                                        <label class="InputLabel" asp-for="Confirm"></label>
+                                        <input class="InputField" asp-for="Confirm">
+                                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <input class="InputButton" type="submit" value="Submit">
+                
+    </form>
+        <div class="fixedTBottomRight"><a href="/Login">Already registered?</a></div>
+</div>
